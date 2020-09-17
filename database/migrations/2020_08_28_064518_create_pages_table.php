@@ -16,10 +16,9 @@ class CreatePagesTable extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('chapters_id');
-            $table->string('name');
             $table->unsignedInteger('page_num');
+            $table->longText('content');
             $table->timestamps();
-
             $table->foreign('chapters_id')
             ->references('id')
             ->on('chapters')

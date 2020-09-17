@@ -1,5 +1,6 @@
-const mix = require('laravel-mix');
+"use strict";
 
+var mix = require('laravel-mix');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,7 +12,5 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js("resources/js/app.js", "public/js")
-    .js("resources/js/editor.js", "public/js")
-    .sass("resources/sass/tailwind.scss", "public/css")
-    .sass("resources/sass/app.scss", "public/css");
+
+mix.js("resources/js/app.js", "public/js").js("resources/js/editor.js", "public/js").sass("resources/sass/app.scss", "public/css");

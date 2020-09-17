@@ -19,7 +19,6 @@ class CreateChaptersTable extends Migration
             $table->string('name');
             $table->unsignedInteger('chapter_num');
             $table->timestamps();
-
             $table->foreign('courses_id')
             ->references('id')
             ->on('courses')

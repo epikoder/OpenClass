@@ -1,1 +1,39 @@
-//
+@import './select2.scss';
+
+html, body {
+    height: 100%;
+}
+header, footer {
+    height: 10%;
+    background: #000;
+}
+
+main {
+    height: 80%;
+}
+.editor {
+    height: 84%;
+}
+.navigation, .selection {
+    height: 8%;
+}
+.trans-bg {
+    transition: background-color .3s linear;
+}
+.trans-color {
+    transition: color .3s linear;
+}
+.button {
+    padding: 5px;
+    background-color: white;
+    color: #000;
+    border-radius: .3em;
+    border-width: 1px;
+    border-color: #000;
+    transition: background-color 0.3s linear ;
+}
+.button:hover {
+    background: #000;
+    color: white;
+}
+

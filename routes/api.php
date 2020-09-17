@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::domain('api.'.env('APP_URL'))->group(function () {
+    Route::namespace('Library')->group(function () {
+        Route::get('/', 'LibraryManager@index')->name('index');
+        Route::get('/chapters', 'LibraryManager@chapters')->name('chapters');
+        Route::get('/pages', 'LibraryManager@pages')->name('pages');
+        Route::get('/chapter', 'LibraryManager@chapterWithCourseID')->name('chapterWithCourseID');
+        Route::get('/page', 'LibraryManager@pageWithChapterID')->name('pageWithChapterID');
+        Route::get('/singlePage', 'LibraryManager@pageSingle')->name('pageSingle');
+    });
 });

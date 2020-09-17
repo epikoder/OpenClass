@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96d88c61a44a435da8621b27ba75fbda",
+    "content-hash": "28826047db415211dc809a71298b9bcc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2777,6 +2777,72 @@
             "time": "2020-03-22T02:34:13+00:00"
         },
         {
+            "name": "spatie/laravel-blade-javascript",
+            "version": "2.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-blade-javascript.git",
+                "reference": "1f6c95d14c958d71a54e216e790c0fd111cfac02"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-blade-javascript/zipball/1f6c95d14c958d71a54e216e790c0fd111cfac02",
+                "reference": "1f6c95d14c958d71a54e216e790c0fd111cfac02",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "~5.8|^6.0|^7.0",
+                "illuminate/support": "~5.8|^6.0|^7.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.8.0|^4.0|^5.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\BladeJavaScript\\BladeJavaScriptServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\BladeJavaScript\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Blade directive to export variables to JavaScript",
+            "homepage": "https://github.com/spatie/laravel-blade-javascript",
+            "keywords": [
+                "blade",
+                "directive",
+                "javascript",
+                "laravel",
+                "laravel-blade-javascript",
+                "spatie"
+            ],
+            "time": "2020-03-04T10:22:39+00:00"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v6.2.3",
             "source": {
@@ -4220,6 +4286,59 @@
             "time": "2020-02-26T22:30:10+00:00"
         },
         {
+            "name": "te7a-houdini/laravel-trix",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Te7a-Houdini/laravel-trix.git",
+                "reference": "cba876b2b0ed5ceaa1e2fba73ac1a4240eef9900"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Te7a-Houdini/laravel-trix/zipball/cba876b2b0ed5ceaa1e2fba73ac1a4240eef9900",
+                "reference": "cba876b2b0ed5ceaa1e2fba73ac1a4240eef9900",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.8.0|~6.0|~7.0",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.5|~4.0|~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Te7aHoudini\\LaravelTrix\\LaravelTrixServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Te7aHoudini\\LaravelTrix\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ahmed Abd El Ftah",
+                    "email": "ahmedabdelftah95165@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "trix editor for laravel inspired by ActionText for rails",
+            "homepage": "https://github.com/te7ahoudini/laravel-trix",
+            "keywords": [
+                "laravel-trix",
+                "te7a-houdini"
+            ],
+            "time": "2020-06-04T12:31:59+00:00"
+        },
+        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.2",
             "source": {
@@ -5514,6 +5633,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {
