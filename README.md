@@ -64,6 +64,8 @@ In console execute
 
 > php artisan migrate
 
+> php artisan db:seed
+
 > php artisan serve --port=80 
 
 By default port 8000 is used
