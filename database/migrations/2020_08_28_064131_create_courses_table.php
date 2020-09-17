@@ -17,7 +17,7 @@ class CreateCoursesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('name');
-            $table->string('Author');
+            $table->string('author');
             $table->string('level');
             $table->string('cover')->nullable();
             $table->text('description')->nullable();

@@ -17,7 +17,7 @@ class CreatePagesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('chapters_id');
             $table->unsignedInteger('page_num');
-            $table->longText('content');
+            $table->longText('content')->nullable();
             $table->timestamps();
             $table->foreign('chapters_id')
             ->references('id')
