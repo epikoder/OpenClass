@@ -40,7 +40,7 @@ On windows
 C:\windows\system32\drivers\etc\hosts
 
 Add line
-> 127.0.0.1 api.openclass.com
+> 127.0.0.1 http://api.openclass.com
 
 > 127.0.0.1 openclass.com
 
@@ -74,35 +74,43 @@ All password is 'password'
 ## Basic API Usage
 Return available courses or projects JSON
 
-api.openclass.com 
+http://api.openclass.com 
 
 Return chapters in course
 
-param: course (int)
+>param: course (int)
 
-api.openclass.com/chapters?course=id
+http://api.openclass.com/chapters?course=id
 
 Return pages in chapter
 
-param: chapter (int)
+>param: chapter (int)
 
-api.openclass.com/pages?chapter=id
+http://api.openclass.com/pages?chapter=id
 
 Return a page using unique id
 
-api.openclass.com/page?page=id
+>param: page (int)
+
+http://api.openclass.com/page?page=id
 
 Return a chapter
 
-api.openclass.com/chapter?chapter=id
+>param: chapter (int)
+
+http://api.openclass.com/chapter?chapter=id
 
 Return a course
 
-api.openclass.com/course?course=id
+>param: course (int)
+
+http://api.openclass.com/course?course=id
 
 ## Web Editor
+The web editor uses stackedit.js
 
-openclass.com/home
+http://openclass.com/home
+
 
 
 
