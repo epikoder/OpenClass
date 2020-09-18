@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Library;
 
 use App\Http\Controllers\Controller;
-use App\Models\Chapters;
-use App\Models\Courses;
 use App\Models\Pages;
 use Illuminate\Http\Request;
 
@@ -19,13 +17,13 @@ class LibraryManager extends Controller
     public function index()
     {
         return response()->json([
-            'courses' => $this->getCourses()
+            'courses' => $this->getAllCourses()
         ]);
     }
 
-    public function course(Request $request)
+    public function courseWithID(Request $request)
     {
-        return $this->courseWithId($request->course);
+        return $this->getCourse($request->course);
     }
 
     /**
@@ -34,13 +32,18 @@ class LibraryManager extends Controller
     public function chapters(Request $request)
     {
         return response()->json([
-            'chapters' => $this->getChapters($request->course)
+            'chapters' => $this->getAllChapters($request->course)
         ]);
     }
 
-    public function chapterWithCourseID(Request $request)
+    public function chapterWithID(Request $request)
     {
-        return $this->getChapters($request->course);
+        return $this->getChapterWithID($request->course);
+    }
+
+    public function chapterWithNum(Request $request)
+    {
+        return $this->getChapterWithNum($request->course, $request->chapter);
     }
 
     /**
@@ -49,20 +52,16 @@ class LibraryManager extends Controller
     public function pages (Request $request)
     {
         return response()->json([
-            'pages' => $this->pagesFromCourseChapter($request->course, $request->chapter)
+            'pages' => $this->getAllPages($request->chapter)
         ]);
     }
-    public function pageWithChapterID(Request $request)
+    public function pageWithID(Request $request)
     {
-        return $this->pagesWithChapterId($request->chapter);
+        return $this->getPageWithID($request->chapter);
     }
-
-    /**
-     * Return a page
-     */
-    public function pageSingle(Request $request)
+    public function pageWithNum(Request $request)
     {
-        return $this->getPage($request->page);
+        return $this->getPageWithNum($request->chapter, $request->page);
     }
 
 
@@ -72,7 +71,8 @@ class LibraryManager extends Controller
     {
         $request->user()->courses()->create([
             'name' => $request->name,
-            'Author' => $request->user()->name
+            'author' => $request->user()->name,
+            'level' => $request->level
         ]);
         return response()->json([
             'message' => 'Success'
@@ -92,6 +92,10 @@ class LibraryManager extends Controller
 
     public function createPage(Request $request)
     {
-        $page = new Pages();
+        $chapter = $this->getChapterWithID($request->chapter);
+        $pages_num = count($chapter->pages);
+        $chapter->pages()->create([
+            'page_num' => ++$pages_num
+        ]);
     }
 }

@@ -12,24 +12,9 @@ trait Assistant
      *
      * @return \App\Models\Courses
      */
-    public function getCourses()
+    public function getAllCourses()
     {
         return Courses::all();
-    }
-
-    /**
-     * Returns available Chapter
-     *
-     * @return \App\Models\Chapters
-     */
-    public function getChapters($id)
-    {
-        $course = $this->courseWithId($id);
-        return ($course) ? $course->chapters : null;
-    }
-    public function getChapter($id)
-    {
-        return Chapters::findOrFail($id);
     }
 
     /**
@@ -37,29 +22,30 @@ trait Assistant
      *
      * @return \App\Models\Courses
      */
-    public function courseWithId($id)
+    public function getCourse(int $id)
     {
         return Courses::findOrFail($id);
     }
 
     /**
-     * Return pages for course chapter
+     * Returns available Chapter
      *
+     * @return \App\Models\Chapters
      */
-    public function pagesFromCourseChapter ($course_id, $chapter_id)
+    public function getAllChapters(int $id)
     {
-        $course = Courses::findOrFail($course_id);
-        $chapter = ($course) ? $this->findInArray($course->chapters, $chapter_id) : null;
-        return ($chapter) ? ($chapter->pages) : null;
+        $course = $this->getCourse($id);
+        return ($course) ? $course->chapters : null;
     }
-    public function findInArray(object $array,int $id)
+    public function getChapterWithID($id)
     {
-        foreach ($array as $key)
-        {
-            if ($key->id == $id) {
-                return $key;
-            }
-        }
+        return Chapters::findOrFail($id);
+    }
+
+    public function getChapterWithNum(int $course_id, int $chap_num)
+    {
+        $chapters = ($this->getCourse($course_id))->chapters;
+        return $this->findInArray($chapters, ['chapter_num', $chap_num]);
     }
 
     /**
@@ -67,16 +53,31 @@ trait Assistant
      *
      * @return \App\Models\Pages
      */
-    public function pagesWithChapterId($id)
+    public function getAllPages($id)
     {
         return (Chapters::findOrFail($id))->pages;
     }
 
     /**
-     * return a page
+     * @return \App\Models\Pages
      */
-    public function getPage($id)
+    public function getPageWithID($id)
     {
         return Pages::findOrFail($id);
+    }
+    public function getPageWithNum($chap_id, $page_num)
+    {
+        $pages = ($this->getChapterWithID($chap_id))->pages;
+        return $this->findInArray($pages, ['page_num', $page_num]);
+    }
+
+    public function findInArray($array, $param = ['column', 'key'])
+    {
+        foreach ($array as $key)
+        {
+            if ($param['column'] == $param['key']) {
+                return $key;
+            }
+        }
     }
 }
