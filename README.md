@@ -15,19 +15,13 @@ Openclass is free learning platform, to learn various programming language and p
 
 > git clone https://github.com/epikoder/openclass
 
-Composer and Npm required
+Composer required
 ### Install Composer 
 For debian based distro
 > sudo apt install composer
 
-for windows getcomposer.com
-### Install NPM
-> sudo apt install npm
-
 ### Setup environment
 > composer update
-
-> npm run dev
 
 **Edit Host file**
 
