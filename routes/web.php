@@ -12,13 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// LOGIN AND SIGNUP
 Route::get('/', 'Web\WebController@index')->name('home');
 Route::post('/login', 'AuthController@login')->name('login');
 Route::get('/signup', 'Register@signupView')->name('signup');
 
+// DASHBOARD
 Route::get('/home', 'Web\WebController@create')->name('editor');
 Route::post('/editor', 'Web\WebController@write')->name('write');
-
 Route::get('/create', 'Web\WebController@manage')->name('create');
 
 Route::namespace('Library')->group(function () {

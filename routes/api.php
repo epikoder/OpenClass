@@ -19,8 +19,8 @@ Route::domain('api.'.env('APP_URL'))->group(function () {
         Route::get('/', 'LibraryManager@index')->name('index');
         Route::get('/chapters', 'LibraryManager@chapters')->name('chapters');
         Route::get('/pages', 'LibraryManager@pages')->name('pages');
-        Route::get('/chapter', 'LibraryManager@chapterWithCourseID')->name('chapterWithCourseID');
-        Route::get('/page', 'LibraryManager@pageWithChapterID')->name('pageWithChapterID');
-        Route::get('/singlePage', 'LibraryManager@pageSingle')->name('pageSingle');
+        Route::get('/course', 'LibraryManager@courseWithID')->name('courseWithID');
+        Route::get('/chapter', 'LibraryManager@chapterWithID')->name('chapterWithID');
+        Route::get('/page', 'LibraryManager@pageWithID')->name('pageWithID');
     });
 });
