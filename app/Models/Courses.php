@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Courses extends Model
 {
     protected $fillable = [
-        'name', 'level'
+        'title', 'slug', 'author', 'level', 'description', 'cover_url'
     ];
 
     protected $hidden = [
@@ -25,7 +25,7 @@ class Courses extends Model
 
     public function users ()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
 }

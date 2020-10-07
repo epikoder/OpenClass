@@ -16,11 +16,12 @@ class CreateCoursesTable extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('name');
+            $table->string('title');
+            $table->string('slug')->unique();
             $table->string('author');
             $table->string('level');
-            $table->string('cover')->nullable();
-            $table->text('description')->nullable();
+            $table->string('cover_url');
+            $table->text('description');
             $table->timestamps();
             $table->foreign('user_id')
             ->references('id')

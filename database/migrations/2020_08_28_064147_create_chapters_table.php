@@ -16,13 +16,13 @@ class CreateChaptersTable extends Migration
         Schema::create('chapters', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('courses_id');
-            $table->string('name');
+            $table->string('title');
             $table->unsignedInteger('chapter_num');
             $table->timestamps();
             $table->foreign('courses_id')
-            ->references('id')
-            ->on('courses')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('courses')
+                ->onDelete('cascade');
         });
     }
 

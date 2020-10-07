@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // LOGIN AND SIGNUP
+/*
 Route::get('/', 'Web\WebController@index')->name('home');
 Route::post('/login', 'AuthController@login')->name('login');
 Route::get('/signup', 'Register@signupView')->name('signup');
@@ -29,3 +30,4 @@ Route::namespace('Library')->group(function () {
     Route::post('/new/chapter', 'LibraryManager@newChapter')->name('newChapter');
     Route::post('/new/page', 'LibraryManager@newPage')->name('newPage');
 });
+*/

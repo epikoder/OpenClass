@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::domain('api.'.env('APP_URL'))->group(function () {
+Route::namespace('Routes')->domain('api.'.env('APP_URL'))->group(function () {
+    Route::get('/', 'Page@test')->name('page');
+    /*
     Route::namespace('Library')->group(function () {
         Route::get('/', 'LibraryManager@index')->name('index');
         Route::get('/chapters', 'LibraryManager@chapters')->name('chapters');
@@ -23,4 +25,5 @@ Route::domain('api.'.env('APP_URL'))->group(function () {
         Route::get('/chapter', 'LibraryManager@chapterWithID')->name('chapterWithID');
         Route::get('/page', 'LibraryManager@pageWithID')->name('pageWithID');
     });
+    */
 });

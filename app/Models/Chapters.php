@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Chapters extends Model
 {
     protected $fillable = [
-        'name', 'chapter_num'
+        'title', 'chapter_num'
     ];
 
     protected $hidden = [
         'created_at', 'updated_at'
     ];
-    
+
     /**
      * Reverse relation to Courses BelongsTO
      */

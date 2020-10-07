@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pages extends Model
 {
+    protected $fillable = [
+        'content', 'page_num'
+    ];
     /**
      * Reverse relation to chapters
      */
