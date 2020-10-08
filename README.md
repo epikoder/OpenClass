@@ -13,25 +13,26 @@ Openclass is free learning platform, to learn various programming language and p
 
 ## Getting Started
 
-> git clone https://github.com/epikoder/openclass
+`git clone https://github.com/epikoder/openclass`
 
 Composer required
 ### Install Composer 
 For debian based distro
-> sudo apt install composer
+
+`sudo apt install composer`
 
 ### Setup environment
-> composer update
+`composer install`
 
 **Edit Host file**
 
 On Unix/Linux 
 
-/etc/hosts
+> /etc/hosts
 
 On windows
 
-C:\windows\system32\drivers\etc\hosts
+> C:\windows\system32\drivers\etc\hosts
 
 Add line
 > 127.0.0.1 http://api.openclass.com
@@ -54,59 +55,64 @@ copy .env.example to .env and make changes
 
 >DB_PASSWORD=yourpassword
 
+> SESSION_DOMAIN=.openclass.com 
+
 In console execute
 
-> php artisan migrate
+` php artisan key:generate`
 
-> php artisan db:seed
+` php artisan migrate`
 
-> php artisan serve --port=80 
+` php artisan db:seed`
+
+` php artisan serve --port=80`
 
 By default port 8000 is used
 
-All password is 'password'
+All password is `password`
 ## Basic API Usage
-Return available courses or projects JSON
+All responses are Json object
 
-http://api.openclass.com 
+### Return all courses  
+http://api.openclass.com/api
 
-Return chapters in course
 
->param: course (int)
+### Return a course : param: int id| string slug    
+http://api.openclass.com/api/course?id=course_id   or http://api.openclass.com/api/course?slug=slug
 
-http://api.openclass.com/chapters?course=id
+### Return all chapters in a course and infos : param: int id| string slug 
+http://api.openclass.com/api/course/allchapters?id=course_id 
 
-Return pages in chapter
+### Return a chapter and it pages : param: int id
+http://api.openclass.com/api/course/chapter?id=chapter_id
 
->param: chapter (int)
-
-http://api.openclass.com/pages?chapter=id
-
-Return a page using unique id
-
->param: page (int)
-
-http://api.openclass.com/page?page=id
-
-Return a chapter
-
->param: chapter (int)
-
-http://api.openclass.com/chapter?chapter=id
-
-Return a course
-
->param: course (int)
-
-http://api.openclass.com/course?course=id
+### Return a page using it's id as key
+http://api.openclass.com/api/page?id=page_id
 
 ## Web Editor
 The web editor uses stackedit.js
-
-http://openclass.com/home
-
-
+### Web editor is currently deactivated
+~~http://openclass.com/home~~
 
 
+## Authentication
 
+### Signup
+http://api.openclass.com/api/signup
+#### type : `post`
+#### param :
+`name, email, password`
 
+### Login
+http://api.openclass.com/api/login
+#### type: `post`
+#### params: `email`, `password`
+#### return 
+`plain_text_token`
+
+Pass token as header 
+`Authorization: Bearer 'token_here'`
+
+### Logout
+http://api.openclass.com/api/login
+#### type: `get`
