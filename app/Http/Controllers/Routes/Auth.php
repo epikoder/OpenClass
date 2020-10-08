@@ -47,24 +47,28 @@ class Auth extends Controller
             'password' => $request->password
         ];
 
-        if (! FacadesAuth::attemp($credentials)) {
+        if (! FacadesAuth::attempt($credentials)) {
             return response()->json([
                 'status' => 'failed',
                 'message' => 'Invalid email or password'
             ]);
         }
-        //// Get user toke and return token
+        $user = $request->user();
+        $tokens = $user->tokens()->delete();
+        $token = $user->createToken('API Personal Access Token');
         return response()->json([
             'status' => 'success',
             'message' => 'Logged in successfully',
             'data' => [
-                'Authorization' => 'Not implemented yet'
+                'Authorization' => 'Bearer '.$token->plainTextToken
             ]
         ]);
     }
 
     public function logout (Request $request)
     {
+        $user = $request->user();
+        $user->tokens()->delete();
         FacadesAuth::logout();
         return response()->json([
             'status' => 'success',

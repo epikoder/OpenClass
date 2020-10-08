@@ -21,17 +21,4 @@ class Page extends Controller
             ]
         ]);
     }
-    public function test(Request $request)
-    {
-        $user = \App\User::find(1);
-        $user->courses()->create([
-            'title' => 'tile',
-            'slug' => 'slug',
-            'author' => $user->name,
-            'level' => 'level',
-            'description' => 'sd',
-            'cover_url' => 's'
-        ]);
-        return $user;
-    }
 }

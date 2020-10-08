@@ -33,6 +33,7 @@ class Chapter extends Controller
         if ($request->id) {
             $chapter = Chapters::findOrFail($request->id);
         } else {
+            // Use course slug and chapter_num
             $courses = Courses::where('slug', $request->slug)->first();
             if ($courses) {
                 foreach ($courses->chapters as $key) {
@@ -51,7 +52,8 @@ class Chapter extends Controller
             'data' => [
                 'author' => $chapter ? $chapter->courses->users : null,
                 'course' => $chapter ? json_decode(json_encode($chapter->courses)) : null,
-                'chapter' => $chapter ? $chapter->pages : null
+                'chapter' => $chapter ? $chapter : null,
+                'pages' => $chapter ? $chapter->pages : null
             ]
         ]);
     }

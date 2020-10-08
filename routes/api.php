@@ -15,15 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::namespace('Routes')->domain('api.'.env('APP_URL'))->group(function () {
-    Route::get('/', 'Page@test')->name('page');
-    /*
-    Route::namespace('Library')->group(function () {
-        Route::get('/', 'LibraryManager@index')->name('index');
-        Route::get('/chapters', 'LibraryManager@chapters')->name('chapters');
-        Route::get('/pages', 'LibraryManager@pages')->name('pages');
-        Route::get('/course', 'LibraryManager@courseWithID')->name('courseWithID');
-        Route::get('/chapter', 'LibraryManager@chapterWithID')->name('chapterWithID');
-        Route::get('/page', 'LibraryManager@pageWithID')->name('pageWithID');
+    Route::get('/', 'Course@allCourse')->name('api.all.courses');
+    Route::get('/course', 'Course@course')->name('api.course'); //
+    Route::get('/course/allchapters', 'Chapter@allCourseChapters')->name('api.course.all.chapters');
+    Route::get('/course/chapter', 'Chapter@chapter')->name('api.course.chapter');
+    Route::get('/page', 'Page@page')->name('api.page');
+
+    Route::post('/login', 'Auth@login')->name('api.login');
+    Route::post('/signup', 'Auth@signup')->name('api.signup');
+    Route::middleware(['auth:sanctum'])->group(function () {
+        Route::get('/logout', 'Auth@logout')->name('api.logout');
     });
-    */
 });
